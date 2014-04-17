@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>SchoolRecorder BETA</title>
+    <title>Schoolio BETA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -28,13 +28,13 @@
           <li><a href="/events">Try ScrappyBook</a></li>
         </ul>
 
-        <h3 class="text-muted">Learn to Track Your Learning</h3>
+        <h3 class="text-muted">School is Cool at Schoolio</h3>
 
       </div>
 
       <div class="jumbotron">
-        <h1>Welcome to SchoolRecorder</h1>
-        <p class="lead">Track where you learn, how you do, and figure out how to do it better next time.</p>
+        <h1>Welcome to Schoolio</h1>
+        <p class="lead">Track where and how you learn, then figure out how to do it better.</p>
         <p><a class="btn btn-lg btn-success" href="/schools/new" role="button">Add a School</a></p>
       </div>
 
@@ -42,14 +42,14 @@
       <div class="row marketing">
         <div class="col-lg-6">
         	<% @schools.each do |school| %>
-          <h4><a href="/schools/<%= school.id %>"><%= school.name %></a>- <%= school.year_begin %> - <%= school.year_end %></h4>
-          <p><%= school.state %></p>
+          <h4><a href="/schools/<%= school.id %>"><%= school.name %></a> <%= school.state %></h4>
+          <p><%= school.year_begin %> - <%= school.year_end %></p>
           <% end %>
         </div>
       </div>
 
       <div class="footer">
-        <p>&copy; SchoolRecorder, David Hunt 2014</p>
+        <p>&copy; Schoolio, David Hunt 2014</p>
       </div>
      
 

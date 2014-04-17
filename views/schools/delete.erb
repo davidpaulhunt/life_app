@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="">
 
-    <title>SchoolRecorder BETA</title>
+    <title>Schoolio BETA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -25,10 +25,10 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/events">All Schools</a></li>
+          <li class="active"><a href="/schools">All Schools</a></li>
           <li><a href="/events">Try ScrappyBook</a></li>
         </ul>
-        <h3 class="text-muted">Learn to Track Your Learning</h3>
+        <h3 class="text-muted">School is Cool at<b><span style="color:#333;">Schoolio</span></b></h3>
       </div>
 
       <div class="jumbotron">
@@ -37,12 +37,12 @@
           <!-- Default panel contents -->
           <div class="panel-heading"><h1>Delete <%= @school.name %>?</h1></div>
           <div class="panel-body">
-            <p><%= @school.year_begin %> to <%= @school.year_end %></p>
+            <p><%= @school.state %></p>
           </div>
 
           <!-- List group -->
           <ul class="list-group">
-            <li class="list-group-item input-bottom"><%= @school.state %></li>
+            <li class="list-group-item input-bottom"><%= @school.year_begin %> to <%= @school.year_end %></li>
           </ul>
         </div>
         
@@ -56,7 +56,7 @@
       </div>
     
       <div class="footer">
-        <p>&copy; SchoolRecorder, David Hunt 2014</p>
+        <p>&copy; Schoolio, David Hunt 2014</p>
       </div>
 
     </div>

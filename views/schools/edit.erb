@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="">
 
-    <title>ScrappyBook BETA</title>
+    <title>Schoolio BETA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -25,27 +25,50 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/events">All Events</a></li>
-          <li><a href="/schools/index">Try SchoolRecorder</a></li>
+          <li class="active"><a href="/schools">All Schools</a></li>
+          <li><a href="/events/index">Try ScrappyBook</a></li>
         </ul>
-        <h3 class="text-muted">Don't Miss Your Life</h3>
+        <h3 class="text-muted">School is Cool at Schoolio</h3>
       </div>
 
       <div class="jumbotron">
-        <form class="form-signin" role="form" action="/events/<%= @event.id %>" method="post">
-          <h1>Change <%= @event.title %></h1>
-          <input type="text" id="event_title" name="event[title]" value="<%= @event.title %>" class="form-control form-input add-separation" />
-          <div class="input-append date" id="dpYears" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-            <input id="event_date" name="event[date]" class="add-on form-control form-input span2 add-separation" type="text" value="<%= @event.date.strftime('%b %d %Y') %>">
-          </div>
-          <input id="event_description" name="event[description]" class="form-control form-input input-bottom" type="text" value="<%= @event.description %>" style="min-height:150px; text-align:initial;">
+        <form class="form-signin" role="form" action="/schools/<%= @school.id %>" method="post">
+          <h1>Change <%= @school.name %></h1>
+          <input type="text" id="school_name" name="school[name]" value="<%= @school.name %>" class="form-control form-input add-separation" style="display:inline-block; width:70%; float:left;"/>
+          In <select class="form-control" style="width:25%; display:inline-block;" id="school_state" name="school[state]">
+            <option value="<%= @school.state %>"><%= @school.state %></option>
+            <% School::STATES.each do |a| %>
+            <% unless a == @school.state %>
+            <option value="<%= a %>"><%= a %></option>
+            <% end %>
+            <% end %>
+          </select>
+          <div style="min-height:10px;"></div>
+         From <select class="form-control" style="width:40%; display:inline-block;" id="school_year_begin" name="school[year_begin]">
+            <option value="<%= @school.year_begin %>"><%= @school.year_begin %></option>
+            <% School::YEARS.each do |a| %>
+            <% unless a == @school.year_begin %>
+            <option value="<%= a %>"><%= a %></option>
+            <% end %>
+            <% end %>
+          </select>
+          To <select class="form-control" style="width:40%; display:inline-block;" id="school_year_end" name="school[year_end]">
+             <option value="<%= @school.year_end %>"><%= @school.year_end %></option>
+            <% School::YEARS.each do |a| %>
+            <% unless a == @school.state %>
+            <option value="<%= a %>"><%= a %></option>
+            <% end %>
+            <% end %>
+          </select>
           <button class="btn btn-lg btn-success btn-block add-separation" type="submit" name="_method" value="put">Save</button>
-          <a href="/events/<%= @event.id %>"><button class="btn btn-lg btn-primary btn-block" type="button" id="back_button">Cancel</button></a>
+          <a href="/schools/<%= @school.id %>"><button class="btn btn-lg btn-primary btn-block" type="button" id="back_button">Cancel</button></a>
+
+
         </form>
       </div>
     
       <div class="footer">
-        <p>&copy; ScrappyBook, David Hunt 2014</p>
+        <p>&copy; Schoolio, David Hunt 2014</p>
       </div>
 
     </div> <!-- /container -->

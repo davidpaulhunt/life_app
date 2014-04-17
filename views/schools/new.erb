@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="">
 
-    <title>SchoolRecorder BETA</title>
+    <title>Schoolio BETA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -28,26 +28,28 @@
           <li class="active"><a href="/schools">All Schools</a></li>
           <li><a href="/events">Try ScrappyBook</a></li>
         </ul>
-        <h3 class="text-muted">Learn to Track Your Learning</h3>
+        <h3 class="text-muted">School is Cool at <b><span style="color:#333">Schoolio</span></b></h3>
       </div>
 
       <div class="jumbotron">
         <form class="form-signin" role="form" action="/schools" method="post">
           <h1>Add a New School</h1>
-          <input type="text" id="new_school_name" name="new_school[name]" placeholder="I went to" class="form-control form-input add-separation" />
-         <select class="form-control" style="width:40%;" placeholder="From">
+          <input type="text" id="new_school_name" name="new_school[name]" placeholder="I went to" class="form-control form-input add-separation" style="display:inline-block; width:70%; float:left;"/>
+          In <select class="form-control" style="width:25%; display:inline-block;" id="new_school_state" name="new_school[state]">
+            <% School::STATES.each do |a| %>
+            <option value="<%= a %>"><%= a %></option>
+            <% end %>
+          </select>
+          <div style="min-height:10px;"></div>
+         From <select class="form-control" style="width:40%; display:inline-block;" id="new_school_year_begin" name="new_school[year_begin]">
             <% School::YEARS.each do |a| %>
             <option value="<%= a %>"><%= a %></option>
             <% end %>
           </select>
-          <select class="form-control">
-            <% School::STATES.each do |a| %>
+          To <select class="form-control" style="width:40%; display:inline-block;" id="new_school_year_end" name="new_school[year_end]">
+            <% School::YEARS.each do |a| %>
             <option value="<%= a %>"><%= a %></option>
-            <% end %><!-- 
-            <option value="TN">TN</option>
-            <option value="UT">UT</option>
-            <option value="VE">VE</option>
-            <option value="VA">VA</option> -->
+            <% end %>
           </select>
           <!-- <div class="input-append date" id="dpYears" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
             <input id="new_event_date" name="new_event[date]" class="add-on form-control form-input span2 add-separation" type="text" placeholder="It happened on">
@@ -59,7 +61,7 @@
       </div>
     
       <div class="footer">
-        <p>&copy; SchoolRecorder, David Hunt 2014</p>
+        <p>&copy; Schoolio, David Hunt 2014</p>
       </div>
 
     </div> <!-- /container -->
