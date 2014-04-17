@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>ScrappyBook BETA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="/events">All Events</a></li>
+          <li><a href="/schools">Try SchoolRecorder</a></li>
+        </ul>
+
+        <h3 class="text-muted">Don't Miss Out On Life</h3>
+
+      </div>
+
+      <div class="jumbotron">
+        <h1>Welcome to ScrappyBook</h1>
+        <p class="lead">Remember any event, any time.<br>Stop being so forgetful.</p>
+        <p><a class="btn btn-lg btn-success" href="/events/new" role="button">Add an Event</a></p>
+      </div>
+
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+        	<% @events.each do |event| %>
+          <h4><%= event.date.strftime('%b %d %Y') %> - <a href="/events/<%= event.id %>"><%= event.title %></a></h4>
+          <p><%= event.description %></p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>&copy; ScrappyBook, David Hunt 2014</p>
+      </div>
+     
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
