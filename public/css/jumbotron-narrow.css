@@ -7,6 +7,10 @@ body {
 h1 {
   color: #333;
 }
+
+a:hover {
+  text-decoration: none;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

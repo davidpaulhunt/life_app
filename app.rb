@@ -62,8 +62,12 @@ end
 
 
 post '/events/search_results' do
-	search = "%#{params[:search]}%"
-	@events = Event.where("title LIKE ? OR date LIKE ? OR description LIKE ?", search, search, search)
+	temp = params[:search]
+	search = Event.date_convert(temp)
+	search = "%" + search + "%"
+	# search = "%#{params[:search]}%"
+	search.downcase!
+	@events = Event.where("LOWER(title) LIKE ? OR LOWER(date) LIKE ? OR LOWER(description) LIKE ?", search, search, search)
 	erb :"events/search_results"
 end
 
@@ -206,5 +210,34 @@ class Event < ActiveRecord::Base
 		return @display
 	end
 
+	def self.date_convert(search)
+		case search.downcase
+		when "jan" || "january"
+			search = "01"
+		when "feb" || "february"
+			search = "02"
+		when "mar" || "march"
+			search = "03"
+		when "apr" || "april"
+			search = "04"
+		when "may"
+			search = "05"
+		when "jun" || "june"
+			search = "06"
+		when "jul" || "july"
+			search = "07"
+		when "aug" || "august"
+			search = "08"
+		when "sep" || "september"
+			search = "09"
+		when "oct" || "october"
+			search = "10"
+		when "nov" || "november"
+			search = "11"
+		when "dec" || "december"
+			search = "12"
+		end
+		search
+	end
 
 end

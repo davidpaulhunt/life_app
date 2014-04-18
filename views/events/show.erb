@@ -26,7 +26,7 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="/events">All Events</a></li>
-          <li><a href="/schools">Try SchoolRecorder</a></li>
+          <li><a href="/schools">Try Schoolio</a></li>
         </ul>
         <h3 class="text-muted">Don't Miss Your Life</h3>
       </div>
@@ -47,25 +47,21 @@
         
         <div class="btn-group btn-group-justified">
           <a href="/events/<%= @event.id %>/edit"><button class="btn btn-success" style="width:33%;" type="button" id="back_button">Change</button></a>
-           <a href="/events/<%= @event.id %>/delete"><button class="btn btn-danger" style="width:33%;" type="button" id="back_button">Delete</button></a>
+          <a href="/events/<%= @event.id %>/delete"><button class="btn btn-danger" style="width:33%;" type="button" id="back_button">Delete</button></a>
           <a href="/events"><button class="btn btn-primary" type="button" id="back_button" style="width:33%;">Back</button></a>
         </div>
       </div>
-      <div class="row">
-          <form action="/events/search_results" method="post">
-            <input type="hidden" name="method" method="get">
-            <input type="text" name="search">
-            <button type="submit">Search</button>
-          </form>
+        
+         <div class="navbar">  
+        <form action="/events/search_results" method="post" class="form-inline navbar-left" role="search">
+          <input type="hidden" name="method" method="get">
+          <div class="form-group">
+            <input type="text" name="search" class="form-control" placeholder="Find something...">
+          </div>
+          <button type="submit" class="btn btn-default">Search</button>
+        </form>
+      </div>
 
-
-         <!--  <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Remember something?">
-            </div>
-            <button type="submit" class="btn btn-default">Search</button>
-          </form>
-        </div> -->
         <div style="min-height:15px;"></div>
 
       <div class="footer">

@@ -1,4 +1,82 @@
-<ul>
-<% @events.each do |a| %>
-<li><%= a.title %></li>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+
+    <title>ScrappyBook BETA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="/events">All Events</a></li>
+          <li><a href="/schools">Try Schoolio</a></li>
+        </ul>
+        <h3 class="text-muted">Don't Miss Your Life</h3>
+      </div>
+
+      <div class="jumbotron">
+      	<% @events.each do |a| %>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading"><a href="/events/<%= a.id %>" style="text-decoration:none;"><h1><%= a.title %></h1></a></div>
+          <div class="panel-body">
+            <p><%= a.date.strftime('%b %d %Y') %></p>
+          </div>
+
+          <!-- List group -->
+          <ul class="list-group">
+            <li class="list-group-item input-bottom"><%= a.description %></li>
+          </ul>
+        </div>
+        <% end %>
+
+        
+      </div>
+      
+      <div class="navbar">  
+	      <form action="/events/search_results" method="post" class="form-inline navbar-left" role="search">
+	        <input type="hidden" name="method" method="get">
+	        <div class="form-group">
+	        	<input type="text" name="search" class="form-control" placeholder="Find something...">
+	        </div>
+	        <button type="submit" class="btn btn-default">Search</button>
+	      </form>
+    	</div>
+
+			<div style="min-height:15px;"></div>
+
+    	<div class="footer">
+      	<p>&copy; ScrappyBook, David Hunt 2014</p>
+    	</div>
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
+
+
