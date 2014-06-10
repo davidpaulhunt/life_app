@@ -14,6 +14,10 @@ Clone repo locally. Install gems:
 Set up database. We are using sqlite3.
 
     rake db:create db:migrate
+    
+Run your app server:
+
+    shotgun
 
 ## Tests
 
